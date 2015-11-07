@@ -8,7 +8,13 @@
 
   {{> viewQuestion}}
 
-  <a id="next" class="btn btn-default" href="/survey/{{survey._id}}/{{nextQuestion}}">Next Question</a>
+  {{#if notEqual nextQuestion numberOfQuestions}}
+    <a id="next" class="btn btn-default" href="/survey/{{survey._id}}/{{nextQuestion}}">Next Question</a>
+  {{/if}}
+
+  {{#if notEqual previousQuestion 0}}
+    <a id="past" class="btn btn-default" href="/survey/{{survey._id}}/{{pastQuestion}}">Last Question</a>
+  {{/if}}
 
 </template>
 

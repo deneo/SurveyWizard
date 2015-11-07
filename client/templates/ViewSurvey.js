@@ -6,8 +6,14 @@ if (Meteor.isClient) {
     "nextQuestion": function() {
       return this.questionNumber + 1;
     },
+    "previousQuestion": function() {
+      return this.questionNumber - 1;
+    },
     "question": function() {
       return Questions.findOne({surveyID: this.surveyID, number: this.questionNumber});
+    },
+    "numberOfQuestions": function() {
+      return Questions.find({surveyID: this.surveyID}).count() + 1;
     }
   });
 
@@ -23,7 +29,6 @@ if (Meteor.isClient) {
       if (question.type == "freequestion") {
         var answer =  $('textarea#answer').val();
         var userid = Meteor.userId();
-        console.log("muie" + answer);
         var chestie = Answers.findOne({
           questionID: this._id,
           ownerID: userid
@@ -36,7 +41,6 @@ if (Meteor.isClient) {
             answer: answer
           });
         else {
-          console.log("update" + chestie._id)
           Answers.update(chestie._id, {
               $set : {answer: answer}
             });
@@ -48,6 +52,14 @@ if (Meteor.isClient) {
   Template.viewQuestion.helpers({
     "equal": function (a, b) {
       return a == b;
+    }
+  });
+
+  Template.ViewSurvey.helpers({
+    "notEqual": function (a, b) {
+      console.log(a);
+      console.log(b);
+      return a != b;
     }
   });
 
