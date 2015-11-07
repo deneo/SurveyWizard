@@ -7,6 +7,15 @@
 <template name="questionStatistics">
   <div class="well">
     {{question}}
-    <a class="btn btn-default" href="/answers/{{_id}}">View Answers</a>
+    {{#if equal type "answer10"}}
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{chart}}" aria-valuemin="0" aria-valuemax="10" style="width: 60%">
+      </div>
+    </div>
+    {{/if}}
+    {{#if equal type "starrating"}}
+      <div class="progress-bar" role="progressbar" aria-valuenow="{{chart}}" aria-valuemin="0" aria-valuemax="5"></div>
+    {{/if}}
+    <a class="btn btn-default" style="float:right" href="/answers/{{_id}}">View Answers</a>
   </div>
 </template>

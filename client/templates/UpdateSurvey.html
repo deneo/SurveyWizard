@@ -31,8 +31,6 @@
 
 <template name="question">
   <div class="editQuestion well">
-    Question: <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
-    <button name="delete"  class="btn btn-danger">Delete</button>
     {{#if equal type "freequestion"}}
       <h4> Type: Free Question </h4>
     {{/if}}
@@ -42,6 +40,18 @@
     {{#if equal type "starrating"}}
       <h4> Type: Star Rating </h4>
     {{/if}}
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput"> Question: </label>
+      <div class="col-md-6">
+      <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <br>
+
+    <button name="delete" class="btn btn-danger">Delete</button>
 
   </div>
 </template>
