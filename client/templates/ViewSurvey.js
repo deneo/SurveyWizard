@@ -87,9 +87,9 @@ if (Meteor.isClient) {
         }
       }
       else if (question.type == "starrating") {
-        var answer =  $('.active').index() + 1;
-        var rating = $('#rating').data('userrating');
+        var answer = $('#rating').data('userrating');
         answer = answer.toString();
+        console.log(answer);
         var userid = Meteor.userId();
         var chestie = Answers.findOne({
           questionID: question._id,
