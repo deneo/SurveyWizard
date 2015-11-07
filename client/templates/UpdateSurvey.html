@@ -16,7 +16,7 @@
 
 <template name="addQuestion">
     <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" >
       Add Question <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
@@ -28,7 +28,7 @@
 </template>
 
 <template name="question">
-  <div class="editQuestion panel panel-default">
+  <div class="editQuestion well">
     Question: <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
     <button name="delete"  class="btn btn-danger">Delete</button>
     {{#if equal type "freequestion"}}

@@ -4,3 +4,8 @@
   margin: 5px;
   cursor: move;
 }
+
+body {
+	font-family: 'Dosis', sans-serif;
+  font-size: 20px;
+}

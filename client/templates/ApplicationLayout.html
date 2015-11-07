@@ -1,6 +1,8 @@
 <template name="ApplicationLayout">
 
 <link href='http://fonts.googleapis.com/css?family=Dosis:500&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href="client/css/animate.min.css" rel="stylesheet">
+<link href="client/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
 <!-- Navigation -->
 <div class = "row">
 	<div class = "container col-md-12">
@@ -21,6 +23,9 @@
 									{{#if currentUser}}
 										<li><a href="{{pathFor route='CreateSurvey'}}">New Survey</a></li>
 									{{/if}}
+									{{#if currentUser}}
+										<li><a href="{{pathFor route='MySurveys'}}">My surveys</a></li>
+									{{/if}}
 		            </ul>
 		            <ul class="nav navbar-nav navbar-right">
 		              <li>{{> loginButtons align="right"}}</li>
@@ -40,4 +45,7 @@
 	</div>
 <div class = "col-md-1"></div>
 </div>
+
+<!-- Bootstrap Dropdown Hover JS -->
+ <script src="client/js/bootstrap-dropdownhover.js"></script>
 </template>

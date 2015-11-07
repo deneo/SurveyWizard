@@ -1,0 +1,17 @@
+<template name = "MySurveys">
+  {{#each surveys}}
+    {{>survey}}
+  {{/each}}
+</template>
+
+<template name = "survey">
+  <div class="well">
+    <h4>{{name}}</h4>
+    {{description}}
+
+    <div class="btn-group" role="group" style="float:right">
+      <button id="button1id" name="button1id" class="btn btn-warning">Update</button>
+      <button id="" name="" class="btn btn-default">Statistics</button>
+    </div>
+  </div>
+</template>
