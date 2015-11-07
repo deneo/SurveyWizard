@@ -23,3 +23,5 @@ accounts-password
 iron:router
 twbs:bootstrap
 mrt:jquery-ui
+dandv:jquery-rateit
+msavin:mongol

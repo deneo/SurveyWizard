@@ -14,7 +14,7 @@ if (Meteor.isClient) {
       Questions.insert({
         type: "freequestion",
         surveyID: this.surveyID,
-        rank: rank + 1
+        number: rank + 1
       });
     },
     "click #answer10": function(event) {
@@ -22,7 +22,7 @@ if (Meteor.isClient) {
       Questions.insert({
         type: "answer10",
         surveyID: this.surveyID,
-        rank: rank + 1
+        number: rank + 1
       });
     },
     "click #starrating": function(event) {
@@ -30,7 +30,7 @@ if (Meteor.isClient) {
       Questions.insert({
         type: "starrating",
         surveyID: this.surveyID,
-        rank: rank + 1
+        number: rank + 1
       });
     }
   });

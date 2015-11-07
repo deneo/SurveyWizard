@@ -2,24 +2,30 @@
   <h2>{{survey.name}}</h2>
   <p>{{survey.description}}></p>
 
+  Intrebarea numarul: {{questionNumber}}
+
   <hr>
 
-  {{#each questions}}
-    {{> viewQuestion}}
-  {{/each}}
+  {{> viewQuestion}}
+
+  <a id="next" class="btn btn-default" href="/survey/{{survey._id}}/{{nextQuestion}}">Next Question</a>
+
 </template>
 
 <template name="viewQuestion">
   <div class="well">
-    <h4> {{question}} </h4>
-    {{#if equal type "freequestion"}}
-      <h4> Type: Free Question </h4>
+    <h4> {{question.question}} </h4>
+    {{#if equal question.type "freequestion"}}
+      <textarea class="form-control" id="answer" name="answer"> </textarea>
     {{/if}}
-    {{#if equal type "answer10"}}
-      <h4> Type: Answer 1 to 10 </h4>
+    {{#if equal question.type "answer10"}}
+      <label class="radio-inline" for="radios-0">
+        <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+        1
+      </label>
     {{/if}}
-    {{#if equal type "starrating"}}
-      <h4> Type: Star Rating </h4>
+    {{#if equal question.type "starrating"}}
+      <div class="rateit"></div>
     {{/if}}
   </div>
 
