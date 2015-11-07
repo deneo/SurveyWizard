@@ -8,4 +8,10 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.survey.events({
+    "click #deleteSurvey": function(event) {
+      Surveys.remove({_id: this._id});
+    }
+  })
+
 }
