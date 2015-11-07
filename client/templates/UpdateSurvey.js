@@ -83,7 +83,7 @@ if (Meteor.isClient) {
                       Blaze.getData(before).rank)/2
 
          //update the dragged Item's rank
-         Questions.update({_id: Blaze.getData(el)._id}, {$set: {rank: newRank}});
+         //Questions.update({_id: Blaze.getData(el)._id}, {$set: {rank: newRank}});
        }
    })
  }

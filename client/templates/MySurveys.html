@@ -1,4 +1,4 @@
-<template name = "MySurveys">  
+<template name = "MySurveys">
   {{#each surveys}}
     {{> survey}}
   {{/each}}
@@ -12,7 +12,7 @@
     <div class="btn-group" role="group" style="float:right">
       <a href="#" id="deleteSurvey" class="btn btn-danger">Delete</a>
       <a href="/updateSurvey/{{_id}}" class="btn btn-warning">Update</a>
-      <a href="/updateSurvey/{{_id}}" class="btn btn-default">Statistics</a>
+      <a href="/statistics/{{_id}}" class="btn btn-default">Statistics</a>
     </div>
   </div>
 </template>

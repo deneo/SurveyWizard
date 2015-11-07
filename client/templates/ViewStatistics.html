@@ -1,0 +1,12 @@
+<template name="ViewStatistics">
+  {{#each questions}}
+    {{> questionStatistics}}
+  {{/each}}
+</template>
+
+<template name="questionStatistics">
+  <div class="well">
+    {{question}}
+    <a class="btn btn-default" href="/answers/{{_id}}">View Answers</a>
+  </div>
+</template>
