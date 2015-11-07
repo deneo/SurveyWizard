@@ -6,15 +6,15 @@ if (Meteor.isClient) {
       var name = event.target.name.value;
       var description = event.target.description.value;
 
-      console.log(name);
-
-      Surveys.insert({
+      var _id = Surveys.insert({
         name: name,
         description: description,
         createdAt: new Date(),
         owner: Meteor.userId(),
         username: Meteor.user().username
       });
+
+      Router.go("/updatesurvey/" + _id);
     }
   });
 }

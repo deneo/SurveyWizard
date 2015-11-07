@@ -1,0 +1,30 @@
+<template name = "UpdateSurvey">
+  <h1>{{survey.name}}</h1>
+  <p> {{survey.description}}</p>
+
+  {{#each questions}}
+    {{>question}}
+  {{/each}}
+
+  <center>{{> addQuestion}}</center>
+
+</template>
+
+
+
+<template name="addQuestion">
+    <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Add Question <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li id="freequestion">Free Question</li>
+      <li id="answer10">Answer 1 to 10</li>
+      <li id="starrating">Star Rating</li>
+    </ul>
+  </div>
+</template>
+
+<template name="question">
+
+</template>
