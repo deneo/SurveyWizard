@@ -18,7 +18,9 @@
 		          </div>
 		          <div id="navbar" class="navbar-collapse collapse">
 		            <ul class="nav navbar-nav">
-
+									{{#if currentUser}}
+										<li><a href="{{pathFor route='CreateSurvey'}}">New Survey</a></li>
+									{{/if}}
 		            </ul>
 		            <ul class="nav navbar-nav navbar-right">
 		              <li>{{> loginButtons align="right"}}</li>
