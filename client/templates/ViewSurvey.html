@@ -42,7 +42,7 @@
       </div>
     {{/if}}
     {{#if equal question.type "starrating"}}
-      <div class="rateit"></div>
+      {{> starsRating rating=data id='rating' mutable=true size=50}}
     {{/if}}
   </div>
 

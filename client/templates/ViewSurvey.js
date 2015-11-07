@@ -86,6 +86,28 @@ if (Meteor.isClient) {
             });
         }
       }
+      else if (question.type == "starrating") {
+        var answer =  $('.active').index() + 1;
+        var rating = $('#rating').data('userrating');
+        answer = answer.toString();
+        var userid = Meteor.userId();
+        var chestie = Answers.findOne({
+          questionID: question._id,
+          ownerID: userid
+        });
+
+        if (chestie == undefined)
+          Answers.insert({
+            questionID: question._id,
+            ownerID: userid,
+            answer: answer
+          });
+        else {
+          Answers.update(chestie._id, {
+              $set : {answer: answer}
+            });
+        }
+      }
     }
   });
 

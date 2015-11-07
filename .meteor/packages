@@ -25,3 +25,4 @@ twbs:bootstrap
 mrt:jquery-ui
 dandv:jquery-rateit
 msavin:mongol
+barbatus:stars-rating
