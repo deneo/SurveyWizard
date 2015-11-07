@@ -1,3 +1,26 @@
 <template name = "ViewSurvey">
+  <h2>{{survey.name}}</h2>
+  <p>{{survey.description}}></p>
+
+  <hr>
+
+  {{#each questions}}
+    {{> viewQuestion}}
+  {{/each}}
+</template>
+
+<template name="viewQuestion">
+  <div class="well">
+    <h4> {{question}} </h4>
+    {{#if equal type "freequestion"}}
+      <h4> Type: Free Question </h4>
+    {{/if}}
+    {{#if equal type "answer10"}}
+      <h4> Type: Answer 1 to 10 </h4>
+    {{/if}}
+    {{#if equal type "starrating"}}
+      <h4> Type: Star Rating </h4>
+    {{/if}}
+  </div>
 
 </template>
