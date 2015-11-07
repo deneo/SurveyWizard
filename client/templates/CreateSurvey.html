@@ -1,0 +1,55 @@
+<template name="CreateSurvey">
+  <form class="newSurvey">
+  <fieldset>
+
+  <!-- Form Name -->
+  <legend>New Survey</legend>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput"> Name of survey</label>
+    <div class="col-md-6">
+    <input id="name" name="name" type="text" class="form-control input-md">
+
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textarea"> Description</label>
+    <div class="col-md-4">
+      <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="singlebutton"></label>
+    <div class="col-md-4">
+      <button id="nextButton" name="nextButton" class="btn btn-success">Next Step</button>
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+
+</template>
+
+
+
+
+
+<template name="addQuestion">
+    <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Add Question <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Free Question</a></li>
+      <li><a href="#">Answer 1 to 10</a></li>
+      <li><a href="#">Star Rating</a></li>
+    </ul>
+  </div>
+</template>
