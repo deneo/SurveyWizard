@@ -9,3 +9,10 @@ body {
 	font-family: 'Dosis', sans-serif;
   font-size: 20px;
 }
+
+.btn span.glyphicon {
+	opacity: 0;
+}
+.btn.active span.glyphicon {
+	opacity: 1;
+}

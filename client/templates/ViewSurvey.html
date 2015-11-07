@@ -2,19 +2,26 @@
   <h2>{{survey.name}}</h2>
   <p>{{survey.description}}></p>
 
-  Intrebarea numarul: {{questionNumber}}
-
-  <hr>
-
-  {{> viewQuestion}}
-
   {{#if notEqual nextQuestion numberOfQuestions}}
-    <a id="next" class="btn btn-default" href="/survey/{{survey._id}}/{{nextQuestion}}">Next Question</a>
+    Intrebarea numarul: {{questionNumber}} din {{trueNumberOfQuestions}}
+
+    <hr>
+    {{> viewQuestion}}
+    <div class="btn-group" role="group">
+      {{#if notEqual previousQuestion 0}}
+        <a id="past" class="btn btn-default" href="/survey/{{survey._id}}/{{previousQuestion}}">Previous Question</a>
+      {{/if}}
+      {{#if equal nextQuestion nextNumberOfQuestions}}
+        <a id="next" class="btn btn-success" href="/survey/{{survey._id}}/{{nextQuestion}}">Finish Survey</a>
+      {{else}}
+        <a id="next" class="btn btn-default" href="/survey/{{survey._id}}/{{nextQuestion}}">Next Question</a>
+      {{/if}}
+    </div>
+
+  {{else}}
+    <h1> MULTUMIM, AI TERMINAT CHESTIONARUL! </h1>
   {{/if}}
 
-  {{#if notEqual previousQuestion 0}}
-    <a id="past" class="btn btn-default" href="/survey/{{survey._id}}/{{pastQuestion}}">Last Question</a>
-  {{/if}}
 
 </template>
 
@@ -22,17 +29,26 @@
   <div class="well">
     <h4> {{question.question}} </h4>
     {{#if equal question.type "freequestion"}}
-      <textarea class="form-control" id="answer" name="answer"> </textarea>
+      <textarea class="form-control" id="answer" name="answer">{{data}} </textarea>
     {{/if}}
     {{#if equal question.type "answer10"}}
-      <label class="radio-inline" for="radios-0">
-        <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
-        1
-      </label>
+      <div class="btn-group" data-toggle="buttons">
+      {{#each for 10}}
+  			<label class="btn btn-default{{#if equal data this}}active{{/if}}" value="{{this}}">
+  				<input type="radio" name="options" value="option1" autocomplete="off" chacked>
+  				{{this}}
+  			</label>
+      {{/each}}
+      </div>
     {{/if}}
     {{#if equal question.type "starrating"}}
       <div class="rateit"></div>
     {{/if}}
   </div>
+
+</template>
+
+<template name="answer110">
+
 
 </template>
