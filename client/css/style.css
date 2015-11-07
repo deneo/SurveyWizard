@@ -1,0 +1,6 @@
+.editQuestion {
+  display: block;
+  padding: 5px;
+  margin: 5px;
+  cursor: move;
+}

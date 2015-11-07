@@ -10,22 +10,27 @@ if (Meteor.isClient) {
 
   Template.addQuestion.events({
     "click #freequestion": function(event) {
-      console.log("MERGE");
+      var rank = Questions.find({surveyID: this.surveyID}).count();
       Questions.insert({
         type: "freequestion",
-        surveyID: this.surveyID
+        surveyID: this.surveyID,
+        rank: rank + 1
       });
     },
     "click #answer10": function(event) {
+      var rank = Questions.find({surveyID: this.surveyID}).count();
       Questions.insert({
         type: "answer10",
-        surveyID: this.surveyID
+        surveyID: this.surveyID,
+        rank: rank + 1
       });
     },
     "click #starrating": function(event) {
+      var rank = Questions.find({surveyID: this.surveyID}).count();
       Questions.insert({
         type: "starrating",
-        surveyID: this.surveyID
+        surveyID: this.surveyID,
+        rank: rank + 1
       });
     }
   });
@@ -49,8 +54,8 @@ if (Meteor.isClient) {
   });
 
 
-  Template.question.rendered = function() {
-   this.$('.editQuestion').sortable({
+  Template.UpdateSurvey.rendered = function() {
+   this.$('#editQuestions').sortable({
        stop: function(e, ui) {
          // get the dragged html element and the one before
          //   and after it
@@ -78,7 +83,7 @@ if (Meteor.isClient) {
                       Blaze.getData(before).rank)/2
 
          //update the dragged Item's rank
-         Questions.update({_id: Blaze.getData(el)._id}, {$set: {rank: newRank}})
+         Questions.update({_id: Blaze.getData(el)._id}, {$set: {rank: newRank}});
        }
    })
  }

@@ -4,9 +4,11 @@
 
   <br>
 
-  {{#each questions}}
-    {{>question}}
-  {{/each}}
+  <div id="editQuestions">
+    {{#each questions}}
+      {{>question}}
+    {{/each}}
+  </div>
 
   <center>{{> addQuestion}}</center>
 
@@ -26,7 +28,9 @@
 </template>
 
 <template name="question">
-  <div class="editQuestion">
+  <div class="editQuestion panel panel-default">
+    Question: <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
+    <button name="delete"  class="btn btn-danger">Delete</button>
     {{#if equal type "freequestion"}}
       <h4> Type: Free Question </h4>
     {{/if}}
@@ -37,9 +41,5 @@
       <h4> Type: Star Rating </h4>
     {{/if}}
 
-    <button name="delete" class="btn btn-danger">Delete</button>
-
-    Question:  <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
-    <hr>
   </div>
 </template>
