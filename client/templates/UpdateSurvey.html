@@ -2,6 +2,8 @@
   <h1>{{survey.name}}</h1>
   <p> {{survey.description}}</p>
 
+  <br>
+
   {{#each questions}}
     {{>question}}
   {{/each}}
@@ -10,21 +12,34 @@
 
 </template>
 
-
-
 <template name="addQuestion">
     <div class="btn-group">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Add Question <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li id="freequestion">Free Question</li>
-      <li id="answer10">Answer 1 to 10</li>
-      <li id="starrating">Star Rating</li>
+      <li id="freequestion"><a href="#">Free Question</a></li>
+      <li id="answer10"><a href="#">Answer 1 to 10</a></li>
+      <li id="starrating"><a href="#">Star Rating</a></li>
     </ul>
   </div>
 </template>
 
 <template name="question">
+  <div class="editQuestion">
+    {{#if equal type "freequestion"}}
+      <h4> Type: Free Question </h4>
+    {{/if}}
+    {{#if equal type "answer10"}}
+      <h4> Type: Answer 1 to 10 </h4>
+    {{/if}}
+    {{#if equal type "starrating"}}
+      <h4> Type: Star Rating </h4>
+    {{/if}}
 
+    <button name="delete" class="btn btn-danger">Delete</button>
+
+    Question:  <input id="{{_id}}" name="question" value="{{question}}" type="text" class="form-control input-md">
+    <hr>
+  </div>
 </template>
